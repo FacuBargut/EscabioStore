@@ -8,14 +8,13 @@
     <!-- CDN BOOTSTRAP -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- ESTILOS PERSONALIZADOS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <!-- FONTS -->
-    
+    <link href="css/css/all.css" rel="stylesheet">
     
     <title>TP FINAL</title>
 </head>
 <body>
-
-<h1 id="hola">Hola</h1>
     <!-- Header -->
     <?php include "components/shared/Header.php"?>
 
