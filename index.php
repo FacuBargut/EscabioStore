@@ -7,13 +7,17 @@
     
     <!-- CDN BOOTSTRAP -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <!-- ESTILOS PERSONALIZADOS -->
     <!-- FONTS -->
+
     
     
     <title>TP FINAL</title>
 </head>
 <body>
+
+<h2 class="ale">Esto es un texto</h2>
 
 <h1 id="hola">Hola</h1>
     <!-- Header -->
