@@ -1,0 +1,15 @@
+/* Header */
+
+/* Main */
+
+/* Footer */
+.footer-wrapper{
+    background:black;
+    text-align: center;
+    color: white;
+    line-height: 10;
+}
+
+.footer-wrapper p{
+    margin-bottom: 0;
+}
