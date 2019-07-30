@@ -1,15 +1,18 @@
-<!-- Header     -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="row col-12" style="color:white;">
-        <div class="col-6">
-            <i class="fas fa-phone-alt"></i>0341-4214343 / 0341-4218027
-            <i class="fab fa-whatsapp"></i>3413213053
-            <i class="fas fa-envelope"></i>ventas@elintervalo.com
-        </div>
-        <div class="col-3">Chau</div>
-    </div>
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <!-- <img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" alt=""> -->
+    ScabioStore
+  </a>
+  <form class="form-inline">
+      <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+  </form>
+    <a href="#user">
+        <i class="fas fa-user"></i>
+    </a>
+    <a href="#question">
+        <i class="fas fa-question-circle"></i>
+    </a>
+    <a href="#cart">
+        <i class="fas fa-shopping-cart"></i>
+    </a>
 </nav>
-
-<style scope>
-
-</style>
