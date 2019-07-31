@@ -12,7 +12,7 @@
     <!-- FONTS -->
     <link href="css/css/all.css" rel="stylesheet">
     
-    <title>MusicShop</title>
+    <title>ScabioStore</title>
 </head>
 <body>
     <!-- Header -->

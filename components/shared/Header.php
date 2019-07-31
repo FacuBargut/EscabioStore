@@ -1,18 +1,133 @@
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">
-    <!-- <img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" alt=""> -->
-    ScabioStore
-  </a>
-  <form class="form-inline">
-      <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-  </form>
-    <a href="#user">
-        <i class="fas fa-user"></i>
-    </a>
-    <a href="#question">
-        <i class="fas fa-question-circle"></i>
-    </a>
-    <a href="#cart">
-        <i class="fas fa-shopping-cart"></i>
-    </a>
-</nav>
+<div class="header-wrapper col-md-12">
+    <!-- Header-Top -->
+    <div class="row header-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark col-md-12">
+            <a class="navbar-brand" href="#">ScabioStore</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <i class="fas fa-search"></i>
+                    </form>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-user"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-question-circle"></i></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- Header Bottom -->
+    <div class="row header-bottom">
+        <nav class="navbar navbar-expand-lg col-md-12">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav m-auto a-wrapper">
+                    <a class="nav-item nav-link" href="#">Cervezas</a>
+                    <a class="nav-item nav-link" href="#">Vinos</a>
+                    <a class="nav-item nav-link" href="#">Espirituosas</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Sub-Header -->
+    <div class="sub-nav row">
+        <ul>
+            <li>
+                <h1>Familias y estilos</h1>
+                <li><a href="">Familia ale</a></li>
+                <ul>
+                    <li><a href=""></a>IPA</li>
+                    <li><a href=""></a>APA</li>
+                </ul>
+                <li><a href="">Familia ale</a></li>
+                <ul>
+                    <li><a href=""></a>Pale lager</li>
+                    <li><a href=""></a>Helles</li>
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <h1>Paises</h1>
+                <ul>
+                    <li><a href=""></a>Alemania</li>
+                    <li><a href=""></a>Belgica</li>
+                    <li><a href=""></a>Holanda</li>
+                    <li><a href=""></a>Estados Unidos</li>
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <h1>Descubri</h1>
+                <ul>
+                    <li><a href=""></a>Barriles</li>
+                    <li><a href=""></a>Importadas</li>
+                    <li><a href=""></a>Seasonals</li>
+                    <li><a href=""></a>Premiadas</li>
+                    <li><a href=""></a>Premiadas</li>
+                    <li><a href=""></a>Arma tu propio pack</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<style scope>
+    form{
+        position: relative;
+    }
+
+    form input {
+        border-radius: 10px 10px 10px 10px !important;
+        border: 1px solid grey !important;
+    }
+
+    form i{
+        position: absolute;
+        font-size: 28px;
+        right: 5%;
+        cursor:pointer;
+    }
+
+    nav .nav-item a{
+        color:white !important;
+        font-size: 35px;
+    }
+
+    .header-bottom{
+        background:#f6ecec;
+    }
+
+    .header-bottom ul{
+        
+    }
+
+    /* Header-Bottom */
+    .a-wrapper a{
+        margin-right: 20%;
+        color:black;
+    }
+
+    .a-wrapper a:hover{
+        color:#00ebb9;
+    }
+
+    
+    /* .a-wrapper a:last-child{
+        margin-right: 0;
+    } */
+    
+    /* Items */
+    .link-items{
+
+    }
+</style>
