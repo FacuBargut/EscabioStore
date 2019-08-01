@@ -31,15 +31,71 @@
         <nav class="navbar navbar-expand-lg col-md-12">
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav m-auto a-wrapper">
-                    <a class="nav-item nav-link" href="#">Cervezas</a>
-                    <a class="nav-item nav-link" href="#">Vinos</a>
-                    <a class="nav-item nav-link" href="#">Espirituosas</a>
+                    <ul>
+                        <li>
+                            <a class="nav-item nav-link" id="a-Cerveza" href="#">Cervezas</a>
+                            <div class="sub-nav">
+                            <ul>
+                                <li>
+                                    <h1>Familias y estilos</h1>
+                                    <li><a href="">Familia ale</a></li>
+                                    <ul>
+                                        <li><a href=""></a>IPA</li>
+                                        <li><a href=""></a>APA</li>
+                                    </ul>
+                                    <li><a href="">Familia ale</a></li>
+                                    <ul>
+                                        <li><a href=""></a>Pale lager</li>
+                                        <li><a href=""></a>Helles</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <h1>Paises</h1>
+                                    <ul>
+                                        <li><a href=""></a>Alemania</li>
+                                        <li><a href=""></a>Belgica</li>
+                                        <li><a href=""></a>Holanda</li>
+                                        <li><a href=""></a>Estados Unidos</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <h1>Descubri</h1>
+                                    <ul>
+                                        <li><a href=""></a>Barriles</li>
+                                        <li><a href=""></a>Importadas</li>
+                                        <li><a href=""></a>Seasonals</li>
+                                        <li><a href=""></a>Premiadas</li>
+                                        <li><a href=""></a>Premiadas</li>
+                                        <li><a href=""></a>Arma tu propio pack</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="nav-item nav-link" id="a-Vino" href="#">Vinos</a>
+                            <div class="sub-nav" display="none;">
+                                <h1>Vino</h1>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="nav-item nav-link" id="a-Vino" href="#">Espirituosas</a>
+                            <div class="sub-nav" display="none;">
+                                <h1>Espirituosas</h1>
+                            </div>
+                        </li>
+
+                    </ul>
                 </div>
             </div>
         </nav>
     </div>
     <!-- Sub-Header -->
-    <div class="sub-nav row">
+    <!-- <div class="sub-nav row">
         <ul>
             <li>
                 <h1>Familias y estilos</h1>
@@ -80,7 +136,7 @@
             </li>
         </ul>
     </div>
-</div>
+</div> -->
 <style scope>
     form{
         position: relative;
@@ -108,26 +164,31 @@
     }
 
     .header-bottom ul{
-        
+        list-style:none;
+        display:flex;
     }
 
     /* Header-Bottom */
-    .a-wrapper a{
+    .header-bottom > nav > div > div > ul > li > a{
         margin-right: 20%;
         color:black;
     }
 
-    .a-wrapper a:hover{
-        color:#00ebb9;
+    .header-bottom > nav > div > div > ul > li:hover{
+        
     }
 
-    
-    /* .a-wrapper a:last-child{
-        margin-right: 0;
-    } */
+    .header-bottom > nav > div > div > ul > li:hover  .sub-nav{
+        display: block;
+    }
     
     /* Items */
-    .link-items{
-
+    .sub-nav{
+        float:left;
+        background:#f6ecec;
+        display:none;
+        position: absolute;
+        width: 100%;
+        right: 0;
     }
 </style>
