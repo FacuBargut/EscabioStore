@@ -38,15 +38,15 @@
                             <ul>
                                 <li>
                                     <h1>Familias y estilos</h1>
-                                    <li><a href="">Familia ale</a></li>
+                                    <a href="#">Familia ale</a>
                                     <ul>
-                                        <li><a href=""></a>IPA</li>
-                                        <li><a href=""></a>APA</li>
+                                        <li><a href="#"></a>IPA</li>
+                                        <li><a href="#"></a>APA</li>
                                     </ul>
-                                    <li><a href="">Familia ale</a></li>
+                                    <a href="#">Familia ale</a>
                                     <ul>
-                                        <li><a href=""></a>Pale lager</li>
-                                        <li><a href=""></a>Helles</li>
+                                        <li><a href="#"></a>Pale lager</li>
+                                        <li><a href="#"></a>Helles</li>
                                     </ul>
                                 </li>
                             </ul>
@@ -54,23 +54,24 @@
                                 <li>
                                     <h1>Paises</h1>
                                     <ul>
-                                        <li><a href=""></a>Alemania</li>
-                                        <li><a href=""></a>Belgica</li>
-                                        <li><a href=""></a>Holanda</li>
-                                        <li><a href=""></a>Estados Unidos</li>
+                                        <li><a href="#"></a>Alemania</li>
+                                        <li><a href="#"></a>Belgica</li>
+                                        <li><a href="#"></a>Holanda</li>
+                                        <li><a href="#"></a>Estados Unidos</li>
                                     </ul>
                                 </li>
                             </ul>
+                            
                             <ul>
                                 <li>
                                     <h1>Descubri</h1>
                                     <ul>
-                                        <li><a href=""></a>Barriles</li>
-                                        <li><a href=""></a>Importadas</li>
-                                        <li><a href=""></a>Seasonals</li>
-                                        <li><a href=""></a>Premiadas</li>
-                                        <li><a href=""></a>Premiadas</li>
-                                        <li><a href=""></a>Arma tu propio pack</li>
+                                        <li><a href="#"></a>Barriles</li>
+                                        <li><a href="#"></a>Importadas</li>
+                                        <li><a href="#"></a>Seasonals</li>
+                                        <li><a href="#"></a>Premiadas</li>
+                                        <li><a href="#"></a>Premiadas</li>
+                                        <li><a href="#"></a>Arma tu propio pack</li>
                                     </ul>
                                 </li>
                             </ul>
@@ -78,14 +79,69 @@
                         </li>
                         <li>
                             <a class="nav-item nav-link" id="a-Vino" href="#">Vinos</a>
-                            <div class="sub-nav" display="none;">
-                                <h1>Vino</h1>
+                            <div class="sub-nav">
+                            <ul>
+                                <li>
+                                    <h1>Tipos</h1>
+                                    <ul>
+                                        <li><a href="#"></a>Tinto</li>
+                                        <li><a href="#"></a>Blanco</li>
+                                        <li><a href="#"></a>Espumante</li>
+                                    </ul>
+                                    <h1>Varietales</h1>
+                                    <ul>
+                                        <li><a href="#"></a>Malbec</li>
+                                        <li><a href="#"></a>Blend Tinto</li>
+                                        <li><a href="#"></a>Cabernet Sauvignon</li>
+                                        <li><a href="#"></a>Cavernet Franc</li>
+                                        <li><a href="#"></a>Chardonnay</li>
+                                        <li><a href="#"></a>Sauvignon Blanc</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <h1>Bodegas</h1>
+                                    <ul>
+                                        <li><a href="#"></a>Corbeau Wines</li>
+                                        <li><a href="#"></a>Del Desierto</li>
+                                        <li><a href="#"></a>Renacer</li>
+                                        <li><a href="#"></a>Ojo de Vino</li>
+                                    </ul>
+                                </li>
+                            </ul>
                             </div>
                         </li>
                         <li>
                             <a class="nav-item nav-link" id="a-Vino" href="#">Espirituosas</a>
-                            <div class="sub-nav" display="none;">
-                                <h1>Espirituosas</h1>
+                            <div class="sub-nav">
+                                <ul>
+                                <li>
+                                    <h1>Bebidas</h1>
+                                    <ul>
+                                        <li><a href="#"></a>Whisky</li>
+                                        <li><a href="#"></a>Ron</li>
+                                        <li><a href="#"></a>Vodka</li>
+                                        <li><a href="#"></a>Tequila</li>
+                                        <li><a href="#"></a>Gin</li>
+                                    </ul>
+                                    <ul>
+                                        <li><a href="#"></a>Pale lager</li>
+                                        <li><a href="#"></a>Helles</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <h1>Paises</h1>
+                                    <ul>
+                                        <li><a href="#"></a>Alemania</li>
+                                        <li><a href="#"></a>Belgica</li>
+                                        <li><a href="#"></a>Holanda</li>
+                                        <li><a href="#"></a>Estados Unidos</li>
+                                    </ul>
+                                </li>
+                            </ul>
                             </div>
                         </li>
 
@@ -94,101 +150,6 @@
             </div>
         </nav>
     </div>
-    <!-- Sub-Header -->
-    <!-- <div class="sub-nav row">
-        <ul>
-            <li>
-                <h1>Familias y estilos</h1>
-                <li><a href="">Familia ale</a></li>
-                <ul>
-                    <li><a href=""></a>IPA</li>
-                    <li><a href=""></a>APA</li>
-                </ul>
-                <li><a href="">Familia ale</a></li>
-                <ul>
-                    <li><a href=""></a>Pale lager</li>
-                    <li><a href=""></a>Helles</li>
-                </ul>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <h1>Paises</h1>
-                <ul>
-                    <li><a href=""></a>Alemania</li>
-                    <li><a href=""></a>Belgica</li>
-                    <li><a href=""></a>Holanda</li>
-                    <li><a href=""></a>Estados Unidos</li>
-                </ul>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <h1>Descubri</h1>
-                <ul>
-                    <li><a href=""></a>Barriles</li>
-                    <li><a href=""></a>Importadas</li>
-                    <li><a href=""></a>Seasonals</li>
-                    <li><a href=""></a>Premiadas</li>
-                    <li><a href=""></a>Premiadas</li>
-                    <li><a href=""></a>Arma tu propio pack</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</div> -->
 <style scope>
-    form{
-        position: relative;
-    }
 
-    form input {
-        border-radius: 10px 10px 10px 10px !important;
-        border: 1px solid grey !important;
-    }
-
-    form i{
-        position: absolute;
-        font-size: 28px;
-        right: 5%;
-        cursor:pointer;
-    }
-
-    nav .nav-item a{
-        color:white !important;
-        font-size: 35px;
-    }
-
-    .header-bottom{
-        background:#f6ecec;
-    }
-
-    .header-bottom ul{
-        list-style:none;
-        display:flex;
-    }
-
-    /* Header-Bottom */
-    .header-bottom > nav > div > div > ul > li > a{
-        margin-right: 20%;
-        color:black;
-    }
-
-    .header-bottom > nav > div > div > ul > li:hover{
-        
-    }
-
-    .header-bottom > nav > div > div > ul > li:hover  .sub-nav{
-        display: block;
-    }
-    
-    /* Items */
-    .sub-nav{
-        float:left;
-        background:#f6ecec;
-        display:none;
-        position: absolute;
-        width: 100%;
-        right: 0;
-    }
 </style>
