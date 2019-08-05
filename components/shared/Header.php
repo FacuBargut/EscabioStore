@@ -1,3 +1,23 @@
+<!-- Modal Carrito compras -->
+<div class="ModalCarrito" id="ModalCarrito">
+    <div class="chart-wrapper col-md-3">
+        <div class="cart-view">
+            <div class="header-cart">
+                <i id="HideCart" class="fas fa-chevron-left"></i><h1>Mi carrito</h1>
+                <hr>
+            </div>
+            <div class="rest">
+                <p>No hay elementos en el carrito</p>
+            </div>
+            <ul class="cart-items">
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
 <div class="header-wrapper col-md-12">
     <!-- Header-Top -->
     <div class="row header-top">
@@ -19,7 +39,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#"><i class="fas fa-question-circle"></i></i></a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="opc_nav_cart">
                         <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a>
                     </li>
                 </ul>
@@ -150,6 +170,5 @@
             </div>
         </nav>
     </div>
-<style scope>
 
-</style>
+

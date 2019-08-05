@@ -19,7 +19,30 @@
     <!-- Header -->
     <?php include "components/shared/Header.php"?>
 
-    <!-- SideBar -->
+    <!-- Main -->
+    <div class="col-md-12">
+        <div class="register-wrapper">
+            <form action="">
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input type="email" class="form-control" placeholder="Nombre">
+                </div>
+                <div class="form-group">
+                    <label>Apellido</label>
+                    <input type="email" class="form-control" placeholder="Apellido">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="email" class="form-control" placeholder="Contraseña">
+                </div>
+            </form>
+        </div>    
+
+    </div>
     
 
     <!-- Footer -->
@@ -35,5 +58,3 @@
 </script>
 </body>
 </html>
-
-

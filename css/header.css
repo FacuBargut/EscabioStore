@@ -21,6 +21,7 @@ nav .nav-item a{
 
 .header-bottom{
     background:#f6ecec;
+    color: #2d2d4b;
 }
 
 .header-bottom > nav > div > div > ul{
@@ -71,3 +72,42 @@ nav .nav-item a{
     font-size: .75rem;
     list-style: none;
 }
+
+/* Modal carrito */
+.ModalCarrito{
+    position: absolute;    
+    width: 100%;
+    height: 100%;
+    background: #00000082;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: none;
+}
+
+.ModalCarrito .chart-wrapper{
+    background: white;
+    position: fixed;
+    height: 100%;
+    right: -25%;
+    transition: all ease .3s;
+    padding: 1% 3%;
+}
+
+.ModalCarrito > .chart-wrapper > .cart-view > .header-cart{
+    text-align: center;
+}
+
+.ModalCarrito > .chart-wrapper > .cart-view > .header-cart{
+    text-align: center;
+    position: relative;
+}
+
+.ModalCarrito > .chart-wrapper > .cart-view > .header-cart > i{
+    position: absolute;
+    left: 0%;
+    top: 15%;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
