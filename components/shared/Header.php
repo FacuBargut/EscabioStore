@@ -22,7 +22,7 @@
     <!-- Header-Top -->
     <div class="row header-top">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark col-md-12">
-            <a class="navbar-brand" href="#">ScabioStore</a>
+            <a class="navbar-brand" href="././index.php">ScabioStore</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -34,7 +34,7 @@
                         <i class="fas fa-search"></i>
                     </form>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-user"></i></a>
+                        <a class="nav-link" href="././register.php"><i class="fas fa-user"></i></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"><i class="fas fa-question-circle"></i></i></a>

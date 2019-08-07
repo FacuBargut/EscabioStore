@@ -1,0 +1,25 @@
+.register-wrapper{
+width: 40%;
+margin: 0 auto;
+margin-top: 2%;
+margin-bottom:7%;
+}
+
+.register-wrapper h6{
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 5%;
+}
+
+.register-wrapper p{
+    margin-top: 5%;
+}
+
+.register-wrapper > .form-wrapper > form > .form-group > input {
+    border-radius: 0 !important;
+    padding: 5%;
+}
+
+.register-wrapper > .form-wrapper > form > button {
+    margin-top:5%;
+}
