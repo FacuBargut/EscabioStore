@@ -7,11 +7,13 @@
     
     <!-- CDN BOOTSTRAP -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- ESTILOS PERSONALIZADOS -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
     <!-- FONTS -->
     <link href="css/css/all.css" rel="stylesheet">
+    <!-- ESTILOS PERSONALIZADOS     -->
     <link href="css/header.css" rel="stylesheet">
+    <link href="css/footer.css" rel="stylesheet">
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <link href="css/owl.theme.default.css" rel="stylesheet">
     
     <title>ScabioStore</title>
 </head>
@@ -19,11 +21,40 @@
     <!-- Header -->
     <?php include "components/shared/Header.php"?>
 
-    <!-- SideBar -->
+    
+    <!-- Main -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12 text-center text-success"><h2>Product Slider</h2>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <div class="card">
+                        <img src="img/Productos/porrong.png" alt="" class="card-img-top">
+                        <div class="card-body">
+                            <h3>Porron</h3>
+                            <h5>$ <span class="text-center">25</span></h5>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit eum tenetur possimus, quas accusamus rerum adipisci alias quia nulla sint in tempora, itaque quasi? Earum, eaque! Deserunt consectetur molestias reiciendis.</p>
+                            <button class="btn btn-primary btn-sm">Comprar</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
     
 
-    <!-- Footer -->
-    <?php include "components/shared/Footer.php"?>
+    
     
     
 
@@ -32,10 +63,28 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="js/jquery.js"></script>     
 <script src="js/header.js"></script>
+<script src="js/owl.carousel.js"></script>
 <script>
-
+    $('.owl-carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:3
+            },
+            1000:{
+                items:5
+            }
+        }
+    })
 </script>
 </body>
+<!-- Footer -->
+<!-- <?php include "components/shared/Footer.php"?> -->
 </html>
 
 

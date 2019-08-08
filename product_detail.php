@@ -10,7 +10,6 @@
     <!-- FONTS -->
     <!-- Estilos -->
     <link href="css/css/all.css" rel="stylesheet">
-    <link href="css/register.css" rel="stylesheet">
     <link href="css/header.css" rel="stylesheet">
     <link href="css/footer.css" rel="stylesheet">
     
@@ -19,16 +18,6 @@
 <body>
     <!-- Header -->
     <?php include "components/shared/Header.php"?>
-
-    <!-- Main -->
-    <div class="col-md-12">
-        <div class="register-wrapper">
-            <h6>Registrate con tu direccion de email</h3>
-            <div class="form-wrapper">
-            </div>
-        </div>    
-
-    </div>
     
 
     <!-- Footer -->
