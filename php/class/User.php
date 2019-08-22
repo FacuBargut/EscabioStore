@@ -3,18 +3,29 @@
     class User {
         private $Name;
         private $Surname;
-        private $DNI;
-        private $Telephone_Number;
+        private $Mail;
+        private $Password;
+        private $Activated;
+        
 
-        public function __contruct($name,$surname,$dni,$tel_num){
+        public function __contruct($name,$surname,$mail,$password,$activated = false){
             $this->Name = $name;    
             $this->Surname = $surname;
-            $this->DNI = $dni;
-            $this->Telephone_Number = $tel_num;
+            $this->Mail = $mail;
+            $this->Password = $password;
+            $this->Activated = $activated;
         }
 
         public function Add(){
-            $db = new Conexion();
+            $conn = new Conexion();
+            $sql = "INSERT INTO Usuarios (Nombre, Apellido, Mail, Activado) VALUES ('$this->Name','$this->Surname','$this->Mail','$this->Activated')";
+
+
+            if (mysqli_query($conn, $sql)) {
+                echo "New record created successfully";
+            }else {
+                echo "Error: " . $sql . "" . mysqli_error($conn);
+            }
 
         }
 

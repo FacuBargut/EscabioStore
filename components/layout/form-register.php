@@ -1,6 +1,6 @@
 <form action="">
     <div class="form-group">
-        <input id="name_register" type="text" class="form-control" placeholder="Nombre">
+        <input id="name_register" name="name" type="text" class="form-control" placeholder="Nombre">
     </div>
     <div class="form-group">
         <input id="surname_register" type="text" class="form-control" placeholder="Apellido">

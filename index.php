@@ -1,3 +1,14 @@
+<?php
+
+    include "php/conexion/conexion.php";
+
+    $conexion = new Conexion();
+
+
+    
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
