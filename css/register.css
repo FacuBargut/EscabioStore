@@ -23,3 +23,9 @@ margin-bottom:7%;
 .register-wrapper > .form-wrapper > form > button {
     margin-top:5%;
 }
+
+
+/*Color de error del input*/
+.input-error::-webkit-input-placeholder {
+    color: #dc3545
+}

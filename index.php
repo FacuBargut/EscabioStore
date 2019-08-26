@@ -1,10 +1,6 @@
 <?php
 
     include "php/conexion/conexion.php";
-
-    $conexion = new Conexion();
-
-
     
 ?>
 

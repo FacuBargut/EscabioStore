@@ -26,18 +26,16 @@ $( document ).ready(function() {
 
 
 
-    $('body').on('click','#RegistrarUsuario',function(){
+    $('body').on('click','#RegistrarUsuario',function(e){
         //Validaciones de campos
+        e.preventDefault();
+
         let UserName = $('#name_register').val();        
         let UserSurname = $('#surname_register').val();
         let UserMail = $('#email_register').val();
         let UserPass = $('#pass_register').val();
-        
-        console.log("Datos: "+ UserName +", "+ UserSurname + ", "+ UserMail + ", "+ UserPass);
 
-        if(UserName.length != 0 && UserSurname.length != 0 && UserMail.length != 0 && UserPass.length != 0){
-            
-            console.log("Todo ok");
+        if(UserName.trim() != "" && UserSurname.trim() != "" && UserMail.trim() != "" && UserPass.trim() != ""){
 
             var parametros = {
                 "Name" : UserName,
@@ -62,6 +60,72 @@ $( document ).ready(function() {
             console.log("Falta completar datos");
         }
 
+    })
+
+
+    //Inputs
+     $('body').on('blur','#name_register',function(){
+        let _this = $('#name_register');
+        if( _this.val().trim() == ""){
+            _this.parent().removeClass("border border-success");
+            _this.removeClass("text-success");
+            _this.parent().addClass("border border-danger");
+            _this.addClass("text-danger");
+            _this.addClass("input-error");
+        }else{
+            _this.parent().removeClass("border border-danger");
+            _this.removeClass("text-danger");
+            _this.parent().addClass("border border-success");
+            _this.addClass("text-success");
+        }
+    })
+
+    $('body').on('blur','#surname_register',function(){
+        let _this = $('#surname_register');
+        if( _this.val().trim() == ""){
+            _this.parent().removeClass("border border-success");
+            _this.removeClass("text-success");
+            _this.parent().addClass("border border-danger");
+            _this.addClass("text-danger");
+            _this.addClass("input-error");
+        }else{
+            _this.parent().removeClass("border border-danger");
+            _this.removeClass("text-danger");
+            _this.parent().addClass("border border-success");
+            _this.addClass("text-success");
+        }
+    })
+
+    $('body').on('blur','#email_register',function(){
+        let _this = $('#email_register');
+        if( _this.val().trim() == ""){
+            _this.parent().removeClass("border border-success");
+            _this.removeClass("text-success");
+            _this.parent().addClass("border border-danger");
+            _this.addClass("text-danger");
+            _this.addClass("input-error");
+        }else{
+            _this.parent().removeClass("border border-danger");
+            _this.removeClass("text-danger");
+            _this.parent().addClass("border border-success");
+            _this.addClass("text-success");
+        }
+    })
+
+    $('body').on('blur','#pass_register',function(){
+        let _this = $('#pass_register');
+        if( _this.val().trim() == ""){
+            _this.parent().removeClass("border border-success");
+            _this.removeClass("text-success");
+            _this.parent().addClass("border border-danger");
+            _this.addClass("text-danger");
+            _this.addClass("input-error");
+        }else{
+            _this.parent().removeClass("border border-danger");
+            _this.removeClass("text-danger");
+            _this.parent().addClass("border border-success");
+            _this.addClass("text-success");
+        }
     })
 
 });
