@@ -13,7 +13,7 @@
     	exit;
     }
 
-    $User = new User($UserName,$UserSurname,$UserMail,$UserPass);
+    $User = new User($UserName,$UserSurname,$UserMail,$UserPass,false);
 	$User->Add();    
 
 	

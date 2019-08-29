@@ -50,6 +50,16 @@ $( document ).ready(function() {
                     data: parametros,
                     success: function(resp){
 
+                        if(resp == "Ya existe un usuario con mail ingresado"){      
+                            Swal.fire({
+                                type: 'error',
+                                title: 'Usuario ya existe',
+                                text: 'Existe un usuario registrado con ese email',
+                                allowOutsideClick: false
+                            })
+                        }
+
+
                         console.log("respuesta ajax: "+resp);
                     }
             })
@@ -98,7 +108,9 @@ $( document ).ready(function() {
 
     $('body').on('blur','#email_register',function(){
         let _this = $('#email_register');
-        if( _this.val().trim() == ""){
+        let testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+
+        if( _this.val().trim() == "" && testEmail.test(_this.val())){
             _this.parent().removeClass("border border-success");
             _this.removeClass("text-success");
             _this.parent().addClass("border border-danger");

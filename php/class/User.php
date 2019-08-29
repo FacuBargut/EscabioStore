@@ -12,7 +12,7 @@
             $this->Surname = $surname;
             $this->Mail = $mail;
             $this->Password = $password;
-            $this->Activated = $activated;
+            $this->Activated = false;
         }
 
         public function Add(){
@@ -23,7 +23,7 @@
                 exit;
             }
 
-            $sql = "INSERT INTO usuarios (Nombre, Apellido, Mail, Activado) VALUES ('$this->Name','$this->Surname','$this->Mail','$this->Activated')";
+            $sql = "INSERT INTO Usuarios (Nombre, Apellido, Mail, Activado) VALUES ('$this->Name','$this->Surname','$this->Mail', false)";
 
             if ($conn->query($sql)) {
                 echo "Usuario registrado con exito";
@@ -36,7 +36,7 @@
         public function SearchUserByEmail ($email){
             include "../conexion/conexion.php";
             $resp = false;
-            $result = $conn->query("SELECT * FROM usuarios WHERE Mail = '$email'");
+            $result = $conn->query("SELECT * FROM Usuarios WHERE Mail = '$email'");
             $row_cnt = $result->num_rows;
             if ($row_cnt > 0) {
                 $resp = true;
