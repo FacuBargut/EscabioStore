@@ -34,14 +34,16 @@ $( document ).ready(function() {
         let UserSurname = $('#surname_register').val();
         let UserMail = $('#email_register').val();
         let UserPass = $('#pass_register').val();
+        let UserPassConfirm = $('#pass_confirm_register').val();
 
-        if(UserName.trim() != "" && UserSurname.trim() != "" && UserMail.trim() != "" && UserPass.trim() != ""){
+        if(UserName.trim() != "" && UserSurname.trim() != "" && UserMail.trim() != "" && UserPass.trim() != "" && UserPassConfirm != ""){
 
             var parametros = {
                 "Name" : UserName,
                 "Surname" : UserSurname,
                 "Mail" : UserMail,
-                "Pass" : UserPass
+                "Pass" : UserPass,
+                "PassConfirm": UserPassConfirm
             }
 
             $.ajax({
@@ -126,13 +128,43 @@ $( document ).ready(function() {
 
     $('body').on('blur','#pass_register',function(){
         let _this = $('#pass_register');
+        let _password_confirm = $('#pass_confirm_register');
         if( _this.val().trim() == ""){
             _this.parent().removeClass("border border-success");
             _this.removeClass("text-success");
             _this.parent().addClass("border border-danger");
             _this.addClass("text-danger");
             _this.addClass("input-error");
-        }else{
+        }else if(_this.val().trim() != _password_confirm.val().trim()){
+            _this.parent().removeClass("border border-danger");
+            _this.removeClass("text-danger");
+            _this.parent().addClass("border border-success");
+            _this.addClass("text-success");
+        }
+        else{
+            _this.parent().removeClass("border border-danger");
+            _this.removeClass("text-danger");
+            _this.parent().addClass("border border-success");
+            _this.addClass("text-success");
+        }
+    })
+
+    $('body').on('blur','#pass_confirm_register',function(){
+        let _this = $('#pass_confirm_register');
+        let _password = $('#pass_register');
+        if( _this.val().trim() == ""){
+            _this.parent().removeClass("border border-success");
+            _this.removeClass("text-success");
+            _this.parent().addClass("border border-danger");
+            _this.addClass("text-danger");
+            _this.addClass("input-error");
+        }else if(_password.val().trim() != _this.val().trim()){
+            _this.parent().removeClass("border border-danger");
+            _this.removeClass("text-danger");
+            _this.parent().addClass("border border-success");
+            _this.addClass("text-success");
+        }
+        else{
             _this.parent().removeClass("border border-danger");
             _this.removeClass("text-danger");
             _this.parent().addClass("border border-success");

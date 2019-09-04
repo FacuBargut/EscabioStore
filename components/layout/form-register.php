@@ -13,7 +13,9 @@
     </div>
     <div class="form-group">
         <input id="pass_register" type="password" class="form-control" placeholder="Contraseña">
-
+    </div>
+    <div class="form-group">
+        <input id="pass_confirm_register" type="password" class="form-control" placeholder="Confirmar contraseña">
     </div>
     <button id="RegistrarUsuario" class="btn btn-primary btn-lg btn-block">Registrarme</button>
 </form>
