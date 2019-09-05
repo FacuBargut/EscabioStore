@@ -7,13 +7,34 @@
         private $Activated;
         
 
-        public function __construct($name,$surname,$mail,$password,$activated = false){
+        public function __construct($name,$surname,$mail,$password,$activated){
             $this->Name = $name;    
             $this->Surname = $surname;
             $this->Mail = $mail;
             $this->Password = $password;
-            $this->Activated = false;
+            $this->Activated = $activated;
         }
+
+        public function getName(){
+            return $this->Name;
+        }
+
+        public function getSurname(){
+            return $this->Surname;
+        }
+
+        public function getMail(){
+            return $this->Mail;
+        }
+
+        public function getPassword(){
+            return $this->Password;
+        }
+
+        public function getActivated(){
+            return $this->Activated;
+        }
+
 
         public function Add(){
             include "../conexion/conexion.php";
