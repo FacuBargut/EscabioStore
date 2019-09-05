@@ -44,5 +44,19 @@
             return $resp;
         }
 
+        public static function SearchUserByEmailAndPass ($email,$pass){
+            include "../conexion/conexion.php";
+            $resp = false;
+            $result = $conn->query("SELECT * FROM Usuarios WHERE Mail = '$email' AND Password = '$pass'");
+            $row_cnt = $result->num_rows;
+            $registro = $result->fetch_object();
+            if ($registro) {
+                return $registro;
+            }else{
+                return false;
+            }
+            
+        }
+
 
     }

@@ -57,8 +57,13 @@ $(document).ready(function() {
                             Swal.fire({
                                 type: 'error',
                                 title: 'Usuario ya existe',
-                                text: 'Existe un usuario registrado con ese email',
+                                text: 'Existe un usuario registrado con ese email. Intentelo con un correo electronico distinto',
                                 allowOutsideClick: false
+                            }).then((result) => {
+                                if (result.value) {
+                                    $('#email_register').val('');
+                                    $('#email_register').focus();
+                                }
                             })
                             break;
                         case "Contraseñas con coinciden":
@@ -96,12 +101,18 @@ $(document).ready(function() {
                                     CleanRegisterInputs();
                                 }
                             })
-
-
-
-
-
-
+                            break;
+                        case "Falta completar datos":
+                            Swal.fire({
+                                type: 'error',
+                                title: 'Todos los datos se deben completar',
+                                text: 'Hay campos que no fueron completados. Por favor,completelos y vuela a intentarlo',
+                                allowOutsideClick: false
+                            }).then((result) => {
+                                if (result.value) {
+                                    CleanRegisterInputs();
+                                }
+                            })
                             break;
                     }
                     console.log("respuesta ajax: " + resp);
@@ -111,7 +122,16 @@ $(document).ready(function() {
 
 
         } else {
-            console.log("Falta completar datos");
+            Swal.fire({
+                type: 'error',
+                title: 'Todos los datos se deben completar',
+                text: 'Hay campos que no fueron completados. Por favor, completelos y vuela a intentarlo',
+                allowOutsideClick: false
+            }).then((result) => {
+                if (result.value) {
+                    CleanRegisterInputs();
+                }
+            })
         }
 
     })
@@ -242,5 +262,67 @@ $(document).ready(function() {
     }
 
 
+
+
+
+
+    //Login de usuario
+    $('body').on('blur', '#email_login', function() {
+        let _this = $('#email_login');
+        let testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+
+        if (testEmail.test(_this.val())) {
+            _this.parent().removeClass("border border-danger");
+            _this.removeClass("text-danger");
+            _this.parent().addClass("border border-success");
+            _this.addClass("text-success");
+        } else {
+            _this.parent().removeClass("border border-success");
+            _this.removeClass("text-success");
+            _this.parent().addClass("border border-danger");
+            _this.addClass("text-danger");
+            _this.addClass("input-error");
+        }
+    })
+
+    $('body').on('blur', '#pass_login', function() {
+        let _this = $('#pass_login');
+        if (_this.val().trim() == "") {
+            _this.parent().removeClass("border border-success");
+            _this.removeClass("text-success");
+            _this.parent().addClass("border border-danger");
+            _this.addClass("text-danger");
+            _this.addClass("input-error");
+        } else {
+            _this.parent().removeClass("border border-danger");
+            _this.removeClass("text-danger");
+            _this.parent().addClass("border border-success");
+            _this.addClass("text-success");
+        }
+    })
+
+    $('body').on('click', '#LoguearUsuario', function(e) {
+        e.preventDefault();
+        let pass = $('#pass_login').val();
+        let email = $('#email_login').val();
+
+        if (pass.trim() != "" && email.trim() != "") {
+
+            var parametros = {
+                "Email": email,
+                "Pass": pass
+            }
+
+            $.ajax({
+                url: './php/script/LoginUser.php',
+                type: 'POST',
+                data: parametros,
+                success: function(resp) {
+                    console.log(resp);
+                }
+            })
+        }
+
+    })
 
 });

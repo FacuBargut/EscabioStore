@@ -8,6 +8,8 @@
     $UserPass = trim($_POST['Pass']);
     $UserPassConfirm = trim($_POST['PassConfirm']);
 
+    exit;
+    
     //Valido que no esten vacios
     if ($UserName == "" && $UserSurname == "" && $UserMail == "" && $UserPass == "" ) {
     	echo "Falta completar datos";
