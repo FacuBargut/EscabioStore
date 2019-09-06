@@ -5,14 +5,16 @@
         private $Mail;
         private $Password;
         private $Activated;
+        private $Administrator;
         
 
-        public function __construct($name,$surname,$mail,$password,$activated){
+        public function __construct($name,$surname,$mail,$password,$activated,$admin){
             $this->Name = $name;    
             $this->Surname = $surname;
             $this->Mail = $mail;
             $this->Password = $password;
             $this->Activated = $activated;
+            $this->Administrator = $admin;
         }
 
         public function getName(){
@@ -35,6 +37,10 @@
             return $this->Activated;
         }
 
+        public function getAdministrator(){
+            return $this->Administrator;
+        }
+
 
         public function Add(){
             include "../conexion/conexion.php";
@@ -44,7 +50,7 @@
                 exit;
             }
 
-            $sql = "INSERT INTO Usuarios (Nombre, Apellido, Mail, Activado) VALUES ('$this->Name','$this->Surname','$this->Mail', false)";
+            $sql = "INSERT INTO Usuarios (Nombre, Apellido, Mail, Activado, Administrador) VALUES ('$this->Name','$this->Surname','$this->Mail', false, $this->Administrator)";
 
             if ($conn->query($sql)) {
                 echo "Usuario registrado con exito";

@@ -8,7 +8,7 @@
     if($UserLogued){
         //Inicio sesion
         session_start();
-        $objUser = new User($UserLogued->Nombre,$UserLogued->Apellido,$UserLogued->Mail,$UserLogued->Password,$UserLogued->Activado);
+        $objUser = new User($UserLogued->Nombre,$UserLogued->Apellido,$UserLogued->Mail,$UserLogued->Password,$UserLogued->Activado,$UserLogued->Admin);
         $_SESSION['usuario'] = $objUser;
         
         echo "Sesion iniciada";

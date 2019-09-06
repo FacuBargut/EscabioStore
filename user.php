@@ -64,6 +64,15 @@
             <button class="btn btn-success">Guardar cambios</button>
         </div>
     </div>
+
+    <p style=
+                <?php if($_SESSION['usuario']->getAdministrator() == 1){
+                        ?> "display:block"; <?php
+                    }else{
+                        ?> "display:none;" <?php
+                    }
+                ?>
+    >Esta cuenta esta registrada como admin y puede acceder al <a href="admin.php" target="_blank">Panel de administrador</a>.</p>
     
 
     

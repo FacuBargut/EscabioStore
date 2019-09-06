@@ -54,7 +54,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-question-circle"></i></i></a>
+                        <a class="nav-link" href="././FAQ.php"><i class="fas fa-question-circle"></i></i></a>
                     </li>
                     <li class="nav-item" id="opc_nav_cart">
                         <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a>

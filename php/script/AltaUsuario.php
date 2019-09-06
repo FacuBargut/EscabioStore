@@ -7,6 +7,7 @@
     $UserMail = trim($_POST['Mail']);
     $UserPass = trim($_POST['Pass']);
     $UserPassConfirm = trim($_POST['PassConfirm']);
+    $UserAdministrator = false;
 
     exit;
     
@@ -22,7 +23,7 @@
     //Por default, el usuario al principio no esta activado
     $UserActive = false;
 
-    $User = new User($UserName,$UserSurname,$UserMail,$UserPass,$UserActive);
+    $User = new User($UserName,$UserSurname,$UserMail,$UserPass,$UserActive,$UserAdministrator);
 	$User->Add();    
 
 ?>
