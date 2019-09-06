@@ -34,7 +34,9 @@
                         <i class="fas fa-search"></i>
                     </form>
                     <li class="nav-item">
-                        <a class="nav-link" href="././register.php"><i class="fas fa-user"></i></a>
+                        <a class="nav-link" href="././register.php">
+                            <i <?php if($_SESSION[]) ?>   style="" class="fas fa-user"></i>
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"><i class="fas fa-question-circle"></i></i></a>
