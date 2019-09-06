@@ -261,6 +261,19 @@ $(document).ready(function() {
         $('#name_register').focus();
     }
 
+    //Limpia o inicializa inputs de registro en blanco    
+    function CleanLoginInputs() {
+        $('#form_login > .form-group').each(function() {
+            $(this).removeClass("border border-danger");
+            $(this).removeClass("border border-success");
+            $(this).children('input').removeClass("text-success");
+            $(this).children('input').removeClass("text-danger");
+            $(this).children('input').removeClass("input-error");
+            $(this).children('input').val('');
+        });
+        $('#email_login').focus();
+    }
+
 
 
 
@@ -319,6 +332,24 @@ $(document).ready(function() {
                 data: parametros,
                 success: function(resp) {
                     console.log(resp);
+                    switch (resp){
+                        case "Sesion iniciada":
+                            window.location.href = "./index.php";
+                        break;
+
+                        case "Usuario no existe":
+                            Swal.fire({
+                                type: 'error',
+                                title: 'Usuario no existe',
+                                text: 'No existe un usuario relacionado al mail ingresado',
+                                allowOutsideClick: false
+                            }).then((result) => {
+                                if (result.value) {
+                                    CleanLoginInputs();
+                                }
+                            })
+                        break;
+                    }
                 }
             })
         }

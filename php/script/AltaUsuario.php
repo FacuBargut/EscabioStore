@@ -19,11 +19,13 @@
     	exit;
     }
 
+    //Por default, el usuario al principio no esta activado
+    $UserActive = false;
 
-    $User = new User($UserName,$UserSurname,$UserMail,$UserPass,false);
+    $User = new User($UserName,$UserSurname,$UserMail,$UserPass,$UserActive);
 	$User->Add();    
 
-	
+?>
 	    
 	
     

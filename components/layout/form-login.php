@@ -1,4 +1,4 @@
-<form action="">
+<form id="form_login" action="">
     <div class="form-group">
         <input id="email_login" type="email" class="form-control" placeholder="Email" required>
     </div>

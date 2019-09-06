@@ -1,23 +1,23 @@
 <?php
-    include '../class/User.php';
-    //Obtengo datos desde Ajax
+    include "../class/User.php";
+    //Obtengo datos desde ajax
     $UserEmail = $_POST['Email'];
     $UserPass = $_POST['Pass'];
 
-    if($UserEmail == "" && $UserPass == ""){
-        echo "Falta completar datos";
-        exit;
+    $UserLogued = User::SearchUserByEmailAndPass($UserEmail,$UserPass);
+    if($UserLogued){
+        //Inicio sesion
+        session_start();
+        $objUser = new User($UserLogued->Nombre,$UserLogued->Apellido,$UserLogued->Mail,$UserLogued->Password,$UserLogued->Activado);
+        $_SESSION['usuario'] = $objUser;
+        
+        echo "Sesion iniciada";
+
+    }else{
+        echo "Usuario no existe";
     }
 
-    // $User = new User();
-    $MailEncontrado = false;
-    $MailEncontrado = User::SearchUserByEmailAndPass($UserEmail,$UserPass);
+    exit;
 
-    
-    
-
-    
-
-    
 
 ?>
