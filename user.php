@@ -1,6 +1,8 @@
 <?php
-    session_start();
+   
     include "php/conexion/conexion.php";
+    include "php/class/User.php";
+    session_start();
     
 ?>
 
@@ -26,42 +28,47 @@
 </head>
 <body>
     <!-- Header -->
-    <?php include "components/shared/Header.php"?>
+    <?php include "components/shared/Header.php";?>
 
     
     <!-- Main -->
-    <div class="container mt-4">
+    <div class="container">
         <div class="row">
-            <div class="col-md-12 text-center text-success"><h2>Product Slider</h2>
-
+            <h1>Datos del usuario</h1>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label for="">Nombre</label>
+                <input type="text" value="<?php echo $_SESSION['usuario']->getName(); ?>">
+            </div>
+            <div class="form-group">
+                <label for="">Apellido</label>
+                <input type="text" value="<?php echo $_SESSION['usuario']->getSurname();?>">
+            </div>
+            <div class="form-group">
+                <label for="">Mail</label>
+                <input type="text" value="<?php echo $_SESSION['usuario']->getMail();?>">
+            </div>
+            <div class="form-group">
+                <label for="">Contraseña</label>
+                <input type="text" value="<?php echo $_SESSION['usuario']->getPassword();?>">
+            </div>
+            <div class="form-group">
+                <label for="">Estado cuenta</label>
+                <input type="text"
+                    value="<?php if($_SESSION['usuario']->getActivated() == 0){echo "Activacion pendiente";}else{echo "Activo";}?>">
             </div>
         </div>
-    </div>
-
-    <div class="container mt-3">
         <div class="row">
-            <div class="owl-carousel owl-theme">
-                <div class="item">
-                    <div class="card">
-                        <img src="img/Productos/porrong.png" alt="" class="card-img-top">
-                        <div class="card-body">
-                            <h3>Porron</h3>
-                            <h5>$ <span class="text-center">25</span></h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit eum tenetur possimus, quas accusamus rerum adipisci alias quia nulla sint in tempora, itaque quasi? Earum, eaque! Deserunt consectetur molestias reiciendis.</p>
-                            <button class="btn btn-primary btn-sm">Comprar</button>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
+            <button id="closeSesion" class="btn btn-danger">Cerrar sesión</button>
+            <button class="btn btn-success">Guardar cambios</button>
         </div>
-
     </div>
+    
 
     
-<!-- Footer -->
-<!-- <?php include "components/shared/Footer.php"?> -->
+    <!-- footer -->
+    <?php include "components/shared/Footer.php"?>
     
     
     
@@ -71,27 +78,11 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="js/jquery.js"></script>     
 <script src="js/header.js"></script>
-<script src="js/owl.carousel.js"></script>
-<script>
-    $('.owl-carousel').owlCarousel({
-        loop:true,
-        margin:10,
-        nav:true,
-        responsive:{
-            0:{
-                items:1
-            },
-            600:{
-                items:3
-            },
-            1000:{
-                items:5
-            }
-        }
-    })
-</script>
-</body>
+<script src="js/user.js"></script>
 
+
+
+</body>
 </html>
 
 

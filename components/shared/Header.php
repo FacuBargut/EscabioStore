@@ -34,8 +34,23 @@
                         <i class="fas fa-search"></i>
                     </form>
                     <li class="nav-item">
-                        <a class="nav-link" href="././register.php">
-                            <i <?php if($_SESSION[]) ?>   style="" class="fas fa-user"></i>
+                        <a class="nav-link"
+                            <?php
+                                if(isset($_SESSION['usuario'])){
+                                    ?>href="././user.php"<?php    
+                                }else{
+                                    ?>href="././register.php"<?php
+                                }
+                            ?>
+                         >
+                            <i class="fas fa-user" style=
+                                <?php 
+                                      if(isset($_SESSION['usuario'])){?>
+                                        "color:#17a2b8 !important;" 
+                                <?php  }else{
+                                        ?>"color:white !important;" <?php
+                                } ?>
+                                ></i>
                         </a>
                     </li>
                     <li class="nav-item">
