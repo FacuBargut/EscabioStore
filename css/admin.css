@@ -1,0 +1,27 @@
+body{
+    overflow-x: hidden;
+}
+
+/* Sidebar */
+#sidebar{
+    padding: 0;
+}
+
+#sidebar .list-group{
+    width: 100%;
+}
+
+#sidebar .list-group li{
+    width: 100%;
+    padding-left: 30%;
+    cursor: pointer;
+    border-right:0;border-left:0;border-radius: 0;
+}
+
+#sidebar .list-group li:hover{
+  background-color: #dee2e6 !important;
+}
+
+.sidebar-active{
+    background-color: #dee2e6 !important;
+}
