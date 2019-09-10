@@ -25,3 +25,20 @@ body{
 .sidebar-active{
     background-color: #dee2e6 !important;
 }
+
+
+
+
+
+
+
+
+
+/*Users*/
+table.datos tbody tr{
+	cursor:pointer;
+}
+
+table.datos tbody tr:hover{
+	background-color:#8080803d
+}

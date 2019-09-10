@@ -85,5 +85,23 @@
             
         }
 
+        public static function getUsers (){
+
+            include "../../php/conexion/conexion.php";
+
+            $Array_users = Array();
+            
+            $resp = false;
+            
+            
+            if($result = $conn->query("SELECT * FROM Usuarios")){
+                while ($row = $result->fetch_object()){
+                    array_push($Array_users,$row);
+                }
+            }
+            
+            return $Array_users;            
+        }
+
 
     }

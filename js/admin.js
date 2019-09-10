@@ -6,6 +6,14 @@ $( document ).ready(function() {
             $(this).removeClass('sidebar-active');
         });
         $(this).addClass('sidebar-active');
-    })
 
+       	switch($(this).text().trim()){
+       		case "Clientes":
+       			$('#admin-wrapp').load("./components/admin/customers.php");
+       			break;
+       		case "Productos":
+       			$('#admin-wrapp').load("./components/admin/products.php");
+       			break;
+       	}
+    })
 })
