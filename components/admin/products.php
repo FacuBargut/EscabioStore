@@ -5,7 +5,14 @@
     $Products = Product::getProducts();
 
     if (count($Products) == 0) {
-        ?><h1>Sin productos en la base de datos...</h1><?php 
+        ?>
+          <div class="row">
+              <div class="col-12">
+                  <h1>Sin productos en la base de datos...</h1>
+              </div>
+          </div>
+          
+        <?php 
     }else{
 
 ?>
