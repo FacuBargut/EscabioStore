@@ -18,7 +18,7 @@
                 </col-sm-6>
             </div>
        </div>
-       <table class="table table-striped table-hover">
+       <table class="table">
           <thead>
             <tr>
                   <th>Nombre</th>
@@ -31,11 +31,35 @@
             </tr>
           </thead>
           <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
+                
+                <?php 
+              foreach ($Users as $User) {
+                ?><tr>
+                    <td><?php echo $User->Nombre;?></td>
+                    <td><?php echo $User->Apellido;?></td>
+                    <td><?php echo $User->Mail;?></td>
+                    <td><?php echo $User->Password;?></td>
+                    <td><?php switch ($User->Activado) {
+                      case 0:
+                        echo "Activacion pendiente";
+                        break;
+                      case 1:
+                        echo "Activado";
+                        break;
+                    }
+                ?></td>
+                    <td><?php switch ($User->Admin) {
+                      case 0:
+                        echo "No";
+                        break;
+                      case 1:
+                        echo "Si";
+                        break;
+                    }
+                ?></td>
+              <?php 
+              }
+         ?>
                 </tr>
           </tbody>
        </table>
