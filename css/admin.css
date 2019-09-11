@@ -42,3 +42,11 @@ table.datos tbody tr{
 table.datos tbody tr:hover{
 	background-color:#8080803d
 }
+
+table.datos tbody tr td:first-child > input{
+	cursor:pointer;
+}
+
+.selectedRow{
+	background-color:#8080803d;	
+}

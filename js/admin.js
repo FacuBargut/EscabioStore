@@ -16,4 +16,14 @@ $( document ).ready(function() {
        			break;
        	}
     })
+
+    $('body').on('click','.datos>tbody>tr>td>input',function(){
+    	if ($(this).is(':checked')){
+    		$(this).parent().parent().addClass('selectedRow');	
+    	}else{
+    		
+    		$(this).parent().parent().removeClass('selectedRow');	
+    	}
+    })
+
 })

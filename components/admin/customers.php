@@ -13,21 +13,21 @@
                     <h2>Usuarios</h2>
                 </div>
                 <col-sm-6>
-                      <a class="btn btn-success" href=""><i class="material-icons"></i><span>Add New Employee</span></a>
-                      <a class="btn btn-danger" href=""><i class="material-icons"></i><span>Delete</span></a>
+                      <button class="btn btn-success" href=""><i class="material-icons"></i><span>Add New Employee</span></button>
+                      <button class="btn btn-danger" href=""><i class="material-icons"></i><span>Delete</span></button>
                 </col-sm-6>
             </div>
        </div>
-       <table class="table">
+       <table class="table table-hover datos">
           <thead>
             <tr>
+                  <th><input type="checkbox" name=""></th>
                   <th>Nombre</th>
                   <th>Apellido</th>
                   <th>Mail</th>
                   <th>Contraseña</th>
                   <th>Estado</th>
                   <th>Administrador</th>
-                  <th>Activado</th>
             </tr>
           </thead>
           <tbody>
@@ -35,6 +35,7 @@
                 <?php 
               foreach ($Users as $User) {
                 ?><tr>
+                    <td><input type="checkbox" name=""></td>
                     <td><?php echo $User->Nombre;?></td>
                     <td><?php echo $User->Apellido;?></td>
                     <td><?php echo $User->Mail;?></td>
