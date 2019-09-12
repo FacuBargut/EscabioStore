@@ -13,7 +13,7 @@
                     <h2>Usuarios</h2>
                 </div>
                 <col-sm-6>
-                      <button class="btn btn-success" href=""><i class="material-icons"></i><span>Add New Employee</span></button>
+                      <button class="btn btn-success" data-toggle="modal" data-target="#modal_add" href=""><i class="material-icons"></i><span>Add New Employee</span></button>
                       <button class="btn btn-danger" href=""><i class="material-icons"></i><span>Delete</span></button>
                 </col-sm-6>
             </div>
@@ -28,6 +28,7 @@
                   <th>Contraseña</th>
                   <th>Estado</th>
                   <th>Administrador</th>
+                  <th>Accion</th>
             </tr>
           </thead>
           <tbody>
@@ -61,9 +62,55 @@
               <?php 
               }
          ?>
+                  <td>
+                      <button class="btn btn-primary"><i class="far fa-edit"></i></button>
+                  </td>
                 </tr>
           </tbody>
        </table>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modal_add" tabindex="-1" role="dialog" aria-labelledby="modal_add" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal_add">Alta usuario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+              <form action="">
+                  <div class="form-group">
+                    <label for="">Nombre</label>
+                    <input class="form-control" type="text" placeholder="Usuario">
+                  </div>
+                  <div class="form-group">
+                      <label for="">Apellido</label>
+                      <input class="form-control" type="text" placeholder="Apellido">
+                  </div>
+                  <div class="form-group">
+                        <label for="">Mail</label>
+                        <input class="form-control" type="text" placeholder="Mail">
+                  </div>
+                  <div class="form-group">
+                        <label for="">Contraseña</label>
+                        <input class="form-control" type="text" placeholder="Contraseña">
+                  </div>
+                  <div class="form-group form-check">
+                      <input type="checkbox" class="form-check-input" id="chk_admin">
+                      <label class="form-check-label" for="chk_admin">Administrador</label>
+                  </div>
+                  <small>NOTA: Al crear un usuario desde esta instancia, automaticamente su cuenta estara activada.</small>
+              </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Registrar</button>
+      </div>
+    </div>
   </div>
 </div>
 
