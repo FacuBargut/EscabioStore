@@ -13,7 +13,7 @@
                     <h2>Usuarios</h2>
                 </div>
                 <col-sm-6>
-                      <button class="btn btn-success" data-toggle="modal" data-target="#modal_add" href=""><i class="material-icons"></i><span>Add New Employee</span></button>
+                      <button class="btn btn-success" data-toggle="modal" data-target="#modal_add" id="AddNew"><i class="material-icons"></i><span>Add New Employee</span></button>
                       <button class="btn btn-danger" href=""><i class="material-icons"></i><span>Delete</span></button>
                 </col-sm-6>
             </div>
@@ -63,7 +63,7 @@
               }
          ?>
                   <td>
-                      <button class="btn btn-primary"><i class="far fa-edit"></i></button>
+                      <button  class="btn btn-primary"><i class="far fa-edit"></i></button>
                   </td>
                 </tr>
           </tbody>
@@ -86,19 +86,19 @@
               <form action="">
                   <div class="form-group">
                     <label for="">Nombre</label>
-                    <input class="form-control" type="text" placeholder="Usuario">
+                    <input id="inputUser" class="form-control" type="text" placeholder="Usuario" required>
                   </div>
                   <div class="form-group">
                       <label for="">Apellido</label>
-                      <input class="form-control" type="text" placeholder="Apellido">
+                      <input class="form-control" type="text" placeholder="Apellido" required>
                   </div>
                   <div class="form-group">
                         <label for="">Mail</label>
-                        <input class="form-control" type="text" placeholder="Mail">
+                        <input class="form-control" type="text" placeholder="Mail" required>
                   </div>
                   <div class="form-group">
                         <label for="">Contraseña</label>
-                        <input class="form-control" type="text" placeholder="Contraseña">
+                        <input class="form-control" type="text" placeholder="Contraseña" required>
                   </div>
                   <div class="form-group form-check">
                       <input type="checkbox" class="form-check-input" id="chk_admin">
@@ -108,7 +108,7 @@
               </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Registrar</button>
+        <button id="AltaUser" type="submit" class="btn btn-primary">Registrar</button>
       </div>
     </div>
   </div>

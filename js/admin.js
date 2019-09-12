@@ -21,9 +21,29 @@ $( document ).ready(function() {
     	if ($(this).is(':checked')){
     		$(this).parent().parent().addClass('selectedRow');	
     	}else{
-    		
     		$(this).parent().parent().removeClass('selectedRow');	
     	}
-    })
+	})
+	
+
+
+
+
+
+	$('body').on('click','#AddNew',function(){
+		setTimeout(function(){
+			$('.modal-body>form>.form-group:first>input').focus();
+		  }, 500);
+
+
+
+
+	})
+
+	
+
+
+	
+
 
 })
