@@ -18,13 +18,9 @@ body{
     border-right:0;border-left:0;border-radius: 0;
 }
 
-/* #sidebar .list-group li:hover{
-  background-color: #dee2e6 !important;
+.input-error::-webkit-input-placeholder {
+    color: #dc3545
 }
-
-.sidebar-active{
-    background-color: #dee2e6 !important;
-} */
 
 
 

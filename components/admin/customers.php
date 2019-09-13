@@ -83,32 +83,32 @@
         </button>
       </div>
       <div class="modal-body">
-              <form action="">
+              <form id="frm_AltaUsuario_Admin" action="">
                   <div class="form-group">
                     <label for="">Nombre</label>
-                    <input id="inputUser" class="form-control" type="text" placeholder="Usuario" required>
+                    <input id="UserName" class="form-control" type="text" placeholder="Usuario" required >
                   </div>
                   <div class="form-group">
                       <label for="">Apellido</label>
-                      <input class="form-control" type="text" placeholder="Apellido" required>
+                      <input id="Surname" class="form-control" type="text" placeholder="Apellido" required>
                   </div>
                   <div class="form-group">
                         <label for="">Mail</label>
-                        <input class="form-control" type="text" placeholder="Mail" required>
+                        <input id="Mail" class="form-control" type="text" placeholder="Mail" required>
                   </div>
                   <div class="form-group">
                         <label for="">Contraseña</label>
-                        <input class="form-control" type="text" placeholder="Contraseña" required>
+                        <input id="Password" class="form-control" type="text" placeholder="Contraseña" required>
                   </div>
                   <div class="form-group form-check">
                       <input type="checkbox" class="form-check-input" id="chk_admin">
-                      <label class="form-check-label" for="chk_admin">Administrador</label>
+                      <label class="form-check-label" for="chk_admin" value="admin">Administrador</label>
                   </div>
                   <small>NOTA: Al crear un usuario desde esta instancia, automaticamente su cuenta estara activada.</small>
               </form>
       </div>
       <div class="modal-footer">
-        <button id="AltaUser" type="submit" class="btn btn-primary">Registrar</button>
+        <button id="AddUser" type="submit" class="btn btn-primary">Registrar</button>
       </div>
     </div>
   </div>
