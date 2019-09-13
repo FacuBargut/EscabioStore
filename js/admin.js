@@ -49,7 +49,8 @@ $('body').on('click','#AddUser',function(e){
 			"Surname": UserSurname,
 			"Mail": UserMail,
 			"Pass": UserPass,
-			"UserAdmin": UserAdmin
+			"UserAdmin": UserAdmin,
+			"Administrador": true
 		}
 
 		console.log("Todo ok")
@@ -140,7 +141,8 @@ function CleanRegisterInputs(){
 }
 
 function Enviar(UserName,UserSurname,UserMail,UserPass,UserPassConfirm){
-	if (UserName.trim() != "" && UserSurname.trim() != "" && UserMail.trim() != "" && UserPass.trim() != "" && UserPassConfirm != "") {
+	let testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+	if (UserName.trim() != "" && UserSurname.trim() != "" && (UserMail.trim() != "" && testEmail.test(UserMail)) && UserPass.trim() != "" && UserPassConfirm != "") {
 		return true;
 	}else{
 		return false;

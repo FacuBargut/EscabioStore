@@ -43,7 +43,8 @@ $(document).ready(function() {
                 "Surname": UserSurname,
                 "Mail": UserMail,
                 "Pass": UserPass,
-                "PassConfirm": UserPassConfirm
+                "PassConfirm": UserPassConfirm,
+                "Administrador": false
             }
 
             $.ajax({
@@ -136,6 +137,11 @@ $(document).ready(function() {
 
     })
 
+
+
+
+
+    
 
     //Inputs
     $('body').on('blur', '#name_register', function() {
