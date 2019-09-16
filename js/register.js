@@ -44,7 +44,7 @@ $(document).ready(function() {
                 "Mail": UserMail,
                 "Pass": UserPass,
                 "PassConfirm": UserPassConfirm,
-                "Administrador": false
+                "From": "register"
             }
 
             $.ajax({

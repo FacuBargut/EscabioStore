@@ -50,10 +50,80 @@ $('body').on('click','#AddUser',function(e){
 			"Mail": UserMail,
 			"Pass": UserPass,
 			"UserAdmin": UserAdmin,
-			"Administrador": true
+			"From": "Admin"
 		}
+		        $.ajax({
+                url: './php/script/AltaUsuario.php',
+                type: 'POST',
+                data: parametros,
+                success: function(resp) {
 
-		console.log("Todo ok")
+                    switch (resp) {
+                        case "Ya existe un usuario con mail ingresado":
+                            Swal.fire({
+                                type: 'error',
+                                title: 'Usuario ya existe',
+                                text: 'Existe un usuario registrado con ese email. Intentelo con un correo electronico distinto',
+                                allowOutsideClick: false
+                            }).then((result) => {
+                                if (result.value) {
+                                    $('#email_register').val('');
+                                    $('#email_register').focus();
+                                }
+                            })
+                            break;
+                        case "Contraseñas con coinciden":
+                            Swal.fire({
+                                type: 'error',
+                                title: 'Las contraseñas no coinciden',
+                                text: 'Las contraseñas no coinciden',
+                                allowOutsideClick: false
+                            }).then((result) => {
+                                if (result.value) {
+                                    $('#pass_register').val('');
+                                    $('#pass_confirm_register').val('');
+
+                                    $('#pass_register').parent().removeClass("border border-danger");
+                                    $('#pass_confirm_register').parent().removeClass("border border-danger");
+
+                                    $('#pass_register').removeClass("input-error");
+                                    $('#pass_confirm_register').removeClass("input-error");
+
+                                    $('#pass_register').removeClass("text-danger");
+                                    $('#pass_confirm_register').removeClass("text-danger");
+
+                                    $('#pass_register').focus();
+                                }
+                            })
+                            break;
+                        case "Usuario registrado con exito":
+                            Swal.fire({
+                                type: 'success',
+                                title: 'Usuario creado con exito',
+                                text: 'Se le ha enviado un mail para completar el proceso de registro',
+                                allowOutsideClick: false
+                            }).then((result) => {
+                                if (result.value) {
+                                    CleanRegisterInputs();
+                                }
+                            })
+                            break;
+                        case "Falta completar datos":
+                            Swal.fire({
+                                type: 'error',
+                                title: 'Todos los datos se deben completar',
+                                text: 'Hay campos que no fueron completados. Por favor,completelos y vuela a intentarlo',
+                                allowOutsideClick: false
+                            }).then((result) => {
+                                if (result.value) {
+                                    CleanRegisterInputs();
+                                }
+                            })
+                            break;
+                    }
+                    console.log("respuesta ajax: " + resp);
+                }
+            })
 	}else{
 		console.log("Todo mal")
 	}
