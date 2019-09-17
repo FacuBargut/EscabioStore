@@ -60,6 +60,19 @@
 
         }
 
+        public function Delete($mails){
+            include "../conexion/conexion.php";
+
+            $sql = "DELETE FROM Usuarios WHERE Mail IN ($mails)";
+            
+            if ($conn->query($sql)) {
+                echo "Delete";
+            } else {
+                echo "Error: " . $sql . "<br>" . $conn->error;
+            }
+
+        }
+
         public function SearchUserByEmail ($email){
             include "../conexion/conexion.php";
             $resp = false;

@@ -23,7 +23,7 @@
     <link href="css/admin.css" rel="stylesheet">
     
     
-    <title>ScabioStore</title>
+    <title>Administrador</title>
 </head>
 <body>
     <!-- Header -->

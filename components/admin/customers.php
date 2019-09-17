@@ -14,11 +14,18 @@
                 </div>
                 <col-sm-6>
                       <button class="btn btn-success" data-toggle="modal" data-target="#modal_add" id="AddNew"><i class="material-icons"></i><span>Add New Employee</span></button>
-                      <button class="btn btn-danger" href=""><i class="material-icons"></i><span>Delete</span></button>
+                      <button class="btn btn-danger" id="deleteOpc" href=""><i class="material-icons"></i><span>Delete</span></button>
                 </col-sm-6>
             </div>
        </div>
        <table class="table table-hover datos">
+          <?php
+                if(count($Users) == 0){
+                  ?>
+                    <h1>No hay usuarios en la base de datos</h1>
+                  <?php
+                }else{
+          ?>
           <thead>
             <tr>
                   <th><input type="checkbox" name=""></th>
@@ -68,6 +75,7 @@
 
                 </tr>
           </tbody>
+       <?php } ?>
        </table>
   </div>
 </div>

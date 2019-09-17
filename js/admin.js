@@ -10,6 +10,7 @@ $(document).ready(function() {
             switch ($(this).text().trim()) {
                 case "Clientes":
                     $('#admin-wrapp').load("./components/admin/customers.php");
+                    validateRowsInTable()
                     break;
                 case "Productos":
                     $('#admin-wrapp').load("./components/admin/products.php");
@@ -58,7 +59,7 @@ $(document).ready(function() {
                 data: parametros,
                 success: function(resp) {
 
-                    switch (resp) {
+                    switch (resp.trim()) {
                         case "Ya existe un usuario con mail ingresado":
                             Swal.fire({
                                 type: 'error',
@@ -69,42 +70,26 @@ $(document).ready(function() {
                                 if (result.value) {
                                     $('#email_register').val('');
                                     $('#email_register').focus();
-                                }
-                            })
-                            break;
-                        case "Contraseñas con coinciden":
-                            Swal.fire({
-                                type: 'error',
-                                title: 'Las contraseñas no coinciden',
-                                text: 'Las contraseñas no coinciden',
-                                allowOutsideClick: false
-                            }).then((result) => {
-                                if (result.value) {
-                                    $('#pass_register').val('');
-                                    $('#pass_confirm_register').val('');
-
-                                    $('#pass_register').parent().removeClass("border border-danger");
-                                    $('#pass_confirm_register').parent().removeClass("border border-danger");
-
-                                    $('#pass_register').removeClass("input-error");
-                                    $('#pass_confirm_register').removeClass("input-error");
-
-                                    $('#pass_register').removeClass("text-danger");
-                                    $('#pass_confirm_register').removeClass("text-danger");
-
-                                    $('#pass_register').focus();
+                                    reloadTable
                                 }
                             })
                             break;
                         case "Usuario registrado con exito":
                             Swal.fire({
-                                type: 'success',
+                                type: 'question',
                                 title: 'Usuario creado con exito',
-                                text: 'Se le ha enviado un mail para completar el proceso de registro',
-                                allowOutsideClick: false
+                                text: '¿Desea crear otro usuario?',
+                                confirmButtonText: 'Si',
+                                cancelButtonText: 'No',
+                                allowOutsideClick: false,
+                                showCancelButton: true,
                             }).then((result) => {
                                 if (result.value) {
                                     CleanRegisterInputs();
+                                    reloadTable();
+                                }else{
+                                    // $('#modal_add').modal('hide')
+                                    reloadTable();
                                 }
                             })
                             break;
@@ -121,7 +106,7 @@ $(document).ready(function() {
                             })
                             break;
                     }
-                    console.log("respuesta ajax: " + resp);
+                    console.log(resp);
                 }
             })
         } else {
@@ -139,6 +124,24 @@ $(document).ready(function() {
 
 
 
+    })
+
+
+    $('body').on('click','#deleteOpc',function(){
+
+        
+        let Mails = [];
+        $('table.datos>tbody>tr').each(function(){
+            if($(this).hasClass('selectedRow')){
+                Mails.push("'"+$(this).children().eq(3).text()+"'");
+            }
+        })    
+            if(Mails.length == 0){
+                alert("Debe seleccionar algun registro para eliminar")
+            }else{
+                Delete(Mails);
+            }
+        
     })
 
 
@@ -233,6 +236,45 @@ $(document).ready(function() {
             return true;
         } else {
             return false;
+        }
+    }
+
+    function Delete (mails){
+        $.ajax({
+            type: 'POST',
+            url: './php/script/DeleteUser.php',
+            data: {mails:mails},
+            success: function(resp){
+                switch(resp){
+                    case "Delete":
+                        Swal.fire({
+                            type: 'success',
+                            title: 'Aviso',
+                            text: 'Registros seleccionados eliminados con éxito',
+                            allowOutsideClick: false
+                        }).then((result) => {
+                            if (result.value) {
+                                reloadTable();
+                            }
+                        })
+                    break;
+                    default:
+                        console.log(resp);
+                    break;
+                }
+            }
+        })
+    }
+
+    function reloadTable(){
+        $('#admin-wrapp').load("./components/admin/customers.php");
+        validateRowsInTable();        
+    }
+
+    function validateRowsInTable(){
+        console.log("Filas: "+ $('table.datos>tbody>tr').length);
+        if($('table.datos>tbody>tr').length == 0 ){
+            $('table.datos').html("<h1>No hay registros en la base de datos</h1>");
         }
     }
     // #endregion
