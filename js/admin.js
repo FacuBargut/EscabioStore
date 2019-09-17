@@ -1,58 +1,58 @@
-$( document ).ready(function() {
-//#region Sidebar
-    $('body').on('click','#sidebar > .list-group > li',function(){
+$(document).ready(function() {
+    //#region Sidebar
+    $('body').on('click', '#sidebar > .list-group > li', function() {
 
-        $('#sidebar > .list-group > li').each(function(){
-            $(this).removeClass('sidebar-active');
-        });
-        $(this).addClass('sidebar-active');
+            $('#sidebar > .list-group > li').each(function() {
+                $(this).removeClass('sidebar-active');
+            });
+            $(this).addClass('sidebar-active');
 
-       	switch($(this).text().trim()){
-       		case "Clientes":
-       			$('#admin-wrapp').load("./components/admin/customers.php");
-       			break;
-       		case "Productos":
-       			$('#admin-wrapp').load("./components/admin/products.php");
-       			break;
-       	}
-	})
-// #endregion
+            switch ($(this).text().trim()) {
+                case "Clientes":
+                    $('#admin-wrapp').load("./components/admin/customers.php");
+                    break;
+                case "Productos":
+                    $('#admin-wrapp').load("./components/admin/products.php");
+                    break;
+            }
+        })
+        // #endregion
 
-//#region Tabla
-$('body').on('click','.datos>tbody>tr>td>input',function(){
-	if ($(this).is(':checked')){
-		$(this).parent().parent().addClass('selectedRow');	
-	}else{
-		$(this).parent().parent().removeClass('selectedRow');	
-	}
-})
-// #endregion
+    //#region Tabla
+    $('body').on('click', '.datos>tbody>tr>td>input', function() {
+            if ($(this).is(':checked')) {
+                $(this).parent().parent().addClass('selectedRow');
+            } else {
+                $(this).parent().parent().removeClass('selectedRow');
+            }
+        })
+        // #endregion
 
-$('body').on('click','#AddNew',function(){
-	CleanRegisterInputs();
-})
+    $('body').on('click', '#AddNew', function() {
+        CleanRegisterInputs();
+    })
 
 
 
-$('body').on('click','#AddUser',function(e){
-	e.preventDefault();
+    $('body').on('click', '#AddUser', function(e) {
+        e.preventDefault();
 
-	let UserName = $('#UserName').val();
-	let UserSurname = $('#Surname').val();
-	let UserMail = $('#Mail').val();
-	let UserPass = $('#Password').val();
-	let UserAdmin = $('#chk_admin:checked').val();
-	
-	if(Enviar(UserName,UserSurname,UserMail,UserPass,UserAdmin)){
-		var parametros = {
-			"Name": UserName,
-			"Surname": UserSurname,
-			"Mail": UserMail,
-			"Pass": UserPass,
-			"UserAdmin": UserAdmin,
-			"From": "Admin"
-		}
-		        $.ajax({
+        let UserName = $('#UserName').val();
+        let UserSurname = $('#Surname').val();
+        let UserMail = $('#Mail').val();
+        let UserPass = $('#Password').val();
+        let UserAdmin = GetCheckboxValue();
+
+        if (Enviar(UserName, UserSurname, UserMail, UserPass)) {
+            var parametros = {
+                "Name": UserName,
+                "Surname": UserSurname,
+                "Mail": UserMail,
+                "Pass": UserPass,
+                "UserAdmin": UserAdmin,
+                "From": "Admin"
+            }
+            $.ajax({
                 url: './php/script/AltaUsuario.php',
                 type: 'POST',
                 data: parametros,
@@ -124,102 +124,119 @@ $('body').on('click','#AddUser',function(e){
                     console.log("respuesta ajax: " + resp);
                 }
             })
-	}else{
-		console.log("Todo mal")
-	}
+        } else {
+            Swal.fire({
+                type: 'error',
+                title: 'Error',
+                text: 'Debe completar todos los datos de manera correcta',
+                allowOutsideClick: false
+            }).then((result) => {
+                if (result.value) {
+                    CleanRegisterInputs();
+                }
+            })
+        }
 
-	
 
-})
 
-	
+    })
 
-//#region Validaciones
-	//Inputs
-	$('body').on('blur', '#UserName', function() {
-		let _this = $('#UserName');
-		ValidarVacios(_this);
 
-	})
 
-	$('body').on('blur', '#Surname', function() {
-		let _this = $('#Surname');
-		ValidarVacios(_this);
+    //#region Validaciones
+    //Inputs
+    $('body').on('blur', '#UserName', function() {
+        let _this = $('#UserName');
+        ValidarVacios(_this);
 
-	})
+    })
 
-	$('body').on('blur', '#Mail', function() {
-		let _this = $('#Mail');
-		ValidarMail(_this);
+    $('body').on('blur', '#Surname', function() {
+        let _this = $('#Surname');
+        ValidarVacios(_this);
 
-	})
+    })
 
-	$('body').on('blur', '#Password', function() {
-		let _this = $('#Password');
-		ValidarVacios(_this);
-	})
-//#endregion
+    $('body').on('blur', '#Mail', function() {
+        let _this = $('#Mail');
+        ValidarMail(_this);
 
-//#region Funciones
+    })
 
-	
-function ValidarVacios(_this){
-	if (_this.val().trim() == "") {
-		_this.removeClass("border border-success");
-		_this.removeClass("text-success");
-		_this.addClass("border border-danger");
-		_this.addClass("text-danger");
-		_this.addClass("input-error");
-	} else {
-		_this.removeClass("border border-danger");
-		_this.removeClass("text-danger");
-		_this.addClass("border border-success");
-		_this.addClass("text-success");
-	}
-}
+    $('body').on('blur', '#Password', function() {
+            let _this = $('#Password');
+            ValidarVacios(_this);
+        })
+        //#endregion
 
-function ValidarMail(_this){
-	let testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+    //#region Funciones
 
-	if (testEmail.test(_this.val()) && _this.val().trim != "") {
-		_this.removeClass("border border-danger");
-		_this.removeClass("text-danger");
-		_this.addClass("border border-success");
-		_this.addClass("text-success");
-	} else {
-		_this.removeClass("border border-success");
-		_this.removeClass("text-success");
-		_this.addClass("border border-danger");
-		_this.addClass("text-danger");
-		_this.addClass("input-error");
-	}
-}
 
-function CleanRegisterInputs(){
-	$('#frm_AltaUsuario_Admin > .form-group').each(function() {
-		$(this).children("input").removeClass("border border-danger");
-		$(this).children("input").removeClass("border border-success");
-		$(this).children('input').removeClass("text-success");
-		$(this).children('input').removeClass("text-danger");
-		$(this).children('input').removeClass("input-error");
-		$(this).children('input').val('');
-	});
+    function ValidarVacios(_this) {
+        if (_this.val().trim() == "") {
+            _this.removeClass("border border-success");
+            _this.removeClass("text-success");
+            _this.addClass("border border-danger");
+            _this.addClass("text-danger");
+            _this.addClass("input-error");
+        } else {
+            _this.removeClass("border border-danger");
+            _this.removeClass("text-danger");
+            _this.addClass("border border-success");
+            _this.addClass("text-success");
+        }
+    }
 
-	setTimeout(() => {
-		$('#frm_AltaUsuario_Admin > .form-group:first > input').focus();
-	}, 500);
-}
+    function ValidarMail(_this) {
+        let testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
 
-function Enviar(UserName,UserSurname,UserMail,UserPass,UserPassConfirm){
-	let testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
-	if (UserName.trim() != "" && UserSurname.trim() != "" && (UserMail.trim() != "" && testEmail.test(UserMail)) && UserPass.trim() != "" && UserPassConfirm != "") {
-		return true;
-	}else{
-		return false;
-	}
-}
-// #endregion
-	
+        if (testEmail.test(_this.val()) && _this.val().trim != "") {
+            _this.removeClass("border border-danger");
+            _this.removeClass("text-danger");
+            _this.addClass("border border-success");
+            _this.addClass("text-success");
+        } else {
+            _this.removeClass("border border-success");
+            _this.removeClass("text-success");
+            _this.addClass("border border-danger");
+            _this.addClass("text-danger");
+            _this.addClass("input-error");
+        }
+    }
+
+    function CleanRegisterInputs() {
+        $('#frm_AltaUsuario_Admin > .form-group').each(function() {
+            $(this).children("input").removeClass("border border-danger");
+            $(this).children("input").removeClass("border border-success");
+            $(this).children('input').removeClass("text-success");
+            $(this).children('input').removeClass("text-danger");
+            $(this).children('input').removeClass("input-error");
+            $(this).children('input').val('');
+        });
+
+        setTimeout(() => {
+            $('#frm_AltaUsuario_Admin > .form-group:first > input').focus();
+        }, 500);
+    }
+
+    function Enviar(UserName, UserSurname, UserMail, UserPass) {
+        let testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+        if (UserName.trim() != "" && UserSurname.trim() != "" && (UserMail.trim() != "" && testEmail.test(UserMail)) && UserPass.trim() != "") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function GetCheckboxValue() {
+        if ($('#chk_admin').is(':checked')) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // #endregion
+
 
 
 })

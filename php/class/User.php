@@ -50,7 +50,7 @@
                 exit;
             }
 
-            $sql = "INSERT INTO Usuarios (Nombre, Apellido, Mail, Activado, Administrador) VALUES ('$this->Name','$this->Surname','$this->Mail', false, $this->Administrator)";
+            $sql = "INSERT INTO Usuarios (Nombre, Apellido, Mail, Password, Activado, Admin) VALUES ('$this->Name','$this->Surname','$this->Mail','$this->Password', '$this->Activated', $this->Administrator)";
 
             if ($conn->query($sql)) {
                 echo "Usuario registrado con exito";

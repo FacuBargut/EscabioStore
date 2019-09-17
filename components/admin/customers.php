@@ -59,12 +59,13 @@
                         break;
                     }
                 ?></td>
-              <?php 
-              }
-         ?>
                   <td>
                       <button  class="btn btn-primary"><i class="far fa-edit"></i></button>
                   </td>
+              <?php 
+              }
+         ?>
+
                 </tr>
           </tbody>
        </table>
