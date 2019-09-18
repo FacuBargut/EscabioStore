@@ -86,10 +86,11 @@ $(document).ready(function() {
                             }).then((result) => {
                                 if (result.value) {
                                     CleanRegisterInputs();
-                                    reloadTable();
+                                    // reloadTable();
                                 }else{
                                     // $('#modal_add').modal('hide')
                                     reloadTable();
+                                   
                                 }
                             })
                             break;
@@ -137,7 +138,12 @@ $(document).ready(function() {
             }
         })    
             if(Mails.length == 0){
-                alert("Debe seleccionar algun registro para eliminar")
+                Swal.fire({
+                    type: 'error',
+                    title: 'Error',
+                    text: 'Debe seleccionar por lo menos un usuario para eliminarlo',
+                    allowOutsideClick: false
+                })
             }else{
                 Delete(Mails);
             }
@@ -276,6 +282,10 @@ $(document).ready(function() {
         if($('table.datos>tbody>tr').length == 0 ){
             $('table.datos').html("<h1>No hay registros en la base de datos</h1>");
         }
+    }
+
+    function CerrarModal(){
+    	// $('#modal_add').modal('toggle');
     }
     // #endregion
 
