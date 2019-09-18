@@ -87,10 +87,10 @@ $(document).ready(function() {
                                 if (result.value) {
                                     CleanRegisterInputs();
                                     // reloadTable();
-                                }else{
+                                } else {
                                     // $('#modal_add').modal('hide')
                                     reloadTable();
-                                   
+
                                 }
                             })
                             break;
@@ -128,28 +128,81 @@ $(document).ready(function() {
     })
 
 
-    $('body').on('click','#deleteOpc',function(){
-
-        
+    $('body').on('click', '#deleteOpc', function() {
         let Mails = [];
-        $('table.datos>tbody>tr').each(function(){
-            if($(this).hasClass('selectedRow')){
-                Mails.push("'"+$(this).children().eq(3).text()+"'");
+        $('table.datos>tbody>tr').each(function() {
+            if ($(this).hasClass('selectedRow')) {
+                Mails.push("'" + $(this).children().eq(3).text() + "'");
             }
-        })    
-            if(Mails.length == 0){
-                Swal.fire({
-                    type: 'error',
-                    title: 'Error',
-                    text: 'Debe seleccionar por lo menos un usuario para eliminarlo',
-                    allowOutsideClick: false
-                })
-            }else{
-                Delete(Mails);
-            }
-        
+        })
+        if (Mails.length == 0) {
+            Swal.fire({
+                type: 'error',
+                title: 'Error',
+                text: 'Debe seleccionar por lo menos un usuario para eliminarlo',
+                allowOutsideClick: false
+            })
+        } else {
+            Delete(Mails);
+        }
+
     })
 
+
+    //#region Edicion
+    //Editar Usuario
+    $('body').on('click', '.editUser', function() {
+
+        let Name = $(this).parent().parent().children().eq(1).text();
+        let Surname = $(this).parent().parent().children().eq(2).text();
+        let Mail = $(this).parent().parent().children().eq(3).text();
+        let Password = $(this).parent().parent().children().eq(4).text();
+        let State = $(this).parent().parent().children().eq(5).text();
+        let Admin = $(this).parent().parent().children().eq(6).text();
+
+        $('#modal_edit-body>form>.form-group>#UserName').val(Name);
+        $('#modal_edit-body>form>.form-group>#Surname').val(Surname);
+        $('#modal_edit-body>form>.form-group>#Mail').val(Mail);
+        $('#modal_edit-body>form>.form-group>#Password').val(Password);
+        if (Admin == "Si") {
+            $('#modal_edit-body>form>.form-group>#chk_admin').prop('checked', true);
+        } else {
+            $('#modal_edit-body>form>.form-group>#chk_admin').prop('checked', false);
+        }
+
+    })
+
+    $('body').on('click', '#EditUser', function() {
+
+            let UserName = $('#modal_edit-body>form>.form-group>#UserName').val();
+            let UserSurname = $('#modal_edit-body>form>.form-group>#Surname').val();
+            let UserMail = $('#modal_edit-body>form>.form-group>#Mail').val();
+            let UserPass = $('#modal_edit-body>form>.form-group>#Password').val();
+            let Admin = false;
+            if ($('#modal_edit-body>form>.form-group>#chk_admin').is(':checked')) {
+                Admin = true;
+            }
+
+            var parametros = {
+                "Name": UserName,
+                "Surname": UserSurname,
+                "Mail": UserMail,
+                "Pass": UserPass,
+                "Admin": Admin
+            }
+
+
+
+            $.ajax({
+                type: 'POST',
+                url: './php/script/UpdateUser.php',
+                data: parametros,
+                success: function(resp) {
+
+                }
+            })
+        })
+        //#endregion
 
 
     //#region Validaciones
@@ -245,13 +298,13 @@ $(document).ready(function() {
         }
     }
 
-    function Delete (mails){
+    function Delete(mails) {
         $.ajax({
             type: 'POST',
             url: './php/script/DeleteUser.php',
-            data: {mails:mails},
-            success: function(resp){
-                switch(resp){
+            data: { mails: mails },
+            success: function(resp) {
+                switch (resp) {
                     case "Delete":
                         Swal.fire({
                             type: 'success',
@@ -263,30 +316,27 @@ $(document).ready(function() {
                                 reloadTable();
                             }
                         })
-                    break;
+                        break;
                     default:
                         console.log(resp);
-                    break;
+                        break;
                 }
             }
         })
     }
 
-    function reloadTable(){
+    function reloadTable() {
         $('#admin-wrapp').load("./components/admin/customers.php");
-        validateRowsInTable();        
+        validateRowsInTable();
     }
 
-    function validateRowsInTable(){
-        console.log("Filas: "+ $('table.datos>tbody>tr').length);
-        if($('table.datos>tbody>tr').length == 0 ){
+    function validateRowsInTable() {
+        console.log("Filas: " + $('table.datos>tbody>tr').length);
+        if ($('table.datos>tbody>tr').length == 0) {
             $('table.datos').html("<h1>No hay registros en la base de datos</h1>");
         }
     }
 
-    function CerrarModal(){
-    	// $('#modal_add').modal('toggle');
-    }
     // #endregion
 
 

@@ -17,7 +17,7 @@
         echo "Usuario no existe";
     }
 
-    exit;
+    
 
 
 ?>

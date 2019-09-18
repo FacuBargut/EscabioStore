@@ -67,7 +67,7 @@
                     }
                 ?></td>
                   <td>
-                      <button  class="btn btn-primary"><i class="far fa-edit"></i></button>
+                      <button data-toggle="modal" data-target="#modal_edit"  class="btn btn-primary editUser"><i class="far fa-edit"></i></button>
                   </td>
               <?php 
               }
@@ -81,12 +81,12 @@
 </div>
 
 
-<!-- Modal -->
+<!-- Modal Alta de usuario -->
 <div class="modal fade" id="modal_add" tabindex="-1" role="dialog" aria-labelledby="modal_add" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modal_add">Alta usuario</h5>
+        <h5 class="modal-title" id="modal">Alta usuario</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -118,6 +118,50 @@
       </div>
       <div class="modal-footer">
         <button id="AddUser" type="submit" class="btn btn-primary">Registrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal Edicion de usuario -->
+<div class="modal fade" id="modal_edit" tabindex="-1" role="dialog" aria-labelledby="modal_edit" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal">Editar usuario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="modal_edit-body">
+              <form id="frm_EditUser_Admin" action="">
+                  <div class="form-group">
+                    <label for="">Nombre</label>
+                    <input id="UserName" class="form-control" type="text" placeholder="Usuario" required >
+                  </div>
+                  <div class="form-group">
+                      <label for="">Apellido</label>
+                      <input id="Surname" class="form-control" type="text" placeholder="Apellido" required>
+                  </div>
+                  <div class="form-group">
+                        <label for="">Mail</label>
+                        <input id="Mail" class="form-control" type="text" placeholder="Mail" required>
+                  </div>
+                  <div class="form-group">
+                        <label for="">Contraseña</label>
+                        <input id="Password" class="form-control" type="text" placeholder="Contraseña" required>
+                  </div>
+                  <div class="form-group form-check">
+                      <input type="checkbox" class="form-check-input" id="chk_admin">
+                      <label class="form-check-label" for="chk_admin" value="admin">Administrador</label>
+                  </div>
+              </form>
+      </div>
+      <div class="modal-footer">
+        <button id="EditUser" type="submit" class="btn btn-primary">Aceptar</button>
+        <button id="CancelEditUser" class="btn btn-default">Cancelar</button>
       </div>
     </div>
   </div>

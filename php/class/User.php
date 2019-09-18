@@ -73,6 +73,20 @@
 
         }
 
+        //Update incompleto, tengo que traerme si o si el ID, ya que aca, el mail puede llegar modificado
+        public function Update($name,$surname,$mail,$pass,$admin){
+            include "../conexion/conexion.php";
+
+            $sql = "UPDATE Usuarios (Nombre, Apellido, Mail, Password, Admin) SET ('$name','$surname','$mail','$pass','$admin') WHERE Mail = '$mail'";
+            
+            if ($conn->query($sql)) {
+                echo "Update";
+            } else {
+                echo "Error: " . $sql . "<br>" . $conn->error;
+            }
+
+        }
+
         public function SearchUserByEmail ($email){
             include "../conexion/conexion.php";
             $resp = false;
