@@ -12,6 +12,15 @@
                 <div class="col-sm-6">
                     <h2>Usuarios</h2>
                 </div>
+                <div class="form-group">
+                    <!-- Select  -->
+                    <select class="form-control" id="selectLimit">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                    </select>
+                </div>
                 <col-sm-6>
                       <button class="btn btn-success" data-toggle="modal" data-target="#modal_add" id="AddNew"><i class="material-icons"></i><span>Add New Employee</span></button>
                       <button class="btn btn-danger" id="deleteOpc" href=""><i class="material-icons"></i><span>Delete</span></button>

@@ -148,6 +148,25 @@ $(document).ready(function() {
 
     })
 
+    //#region Select
+    $('body').on('click','#selectLimit',function(){
+        
+        let limit = $(this).val();
+        var Parametros = {
+            "Limit": limit
+        }
+
+        $.ajax({
+            type:'POST',
+            url:'./php/script/Paginacion.php',
+            data: Parametros,
+            success: (resp)=>{
+                console.log(resp)
+            }
+        })
+    })
+    //#endregion
+
 
     //#region Edicion
     //Editar Usuario

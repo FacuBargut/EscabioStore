@@ -112,7 +112,7 @@
             
         }
 
-        public static function getUsers (){
+        public static function GetUsers (){
 
             include "../../php/conexion/conexion.php";
 
